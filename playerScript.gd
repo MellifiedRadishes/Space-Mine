@@ -14,9 +14,11 @@ var fuel = 300
 func _ready() -> void:
 	planet._instantiate();
 	planet._clearTile(xPos, yPos);
+	planet._printOut(xPos, yPos, fuel, blockDict[Tile.BlockType.DIRT]);
+	
 	pass # Replace with function body.
 
-var waitTime : float = .3
+var waitTime : float = .1
 var waiting : bool = false;
 func _startWaiting() -> void:
 	waiting = true;
@@ -30,27 +32,27 @@ func _process(delta: float) -> void:
 	
 	if (Input.is_key_pressed(KEY_W)):
 		if (_move(0, -1)):
-			yPos -= 1
-		planet._printOut(xPos, yPos, fuel);
+			yPos -= 1;
+		planet._printOut(xPos, yPos, fuel, blockDict[Tile.BlockType.DIRT]);
 		_startWaiting();
 	elif (Input.is_key_pressed(KEY_S)):
 		if (_move(0, 1)):
 			yPos += 1;
-		planet._printOut(xPos, yPos, fuel);
+		planet._printOut(xPos, yPos, fuel, blockDict[Tile.BlockType.DIRT]);
 		_startWaiting();
 	elif (Input.is_key_pressed(KEY_A)):
 		if (_move(-1, 0)):
 			xPos -= 1;
-		planet._printOut(xPos, yPos, fuel);	
+		planet._printOut(xPos, yPos, fuel, blockDict[Tile.BlockType.DIRT]);	
 		_startWaiting();
 	elif (Input.is_key_pressed(KEY_D)):
 		if (_move(1, 0)):
 			xPos += 1;
-		planet._printOut(xPos, yPos, fuel);
+		planet._printOut(xPos, yPos, fuel, blockDict[Tile.BlockType.DIRT]);
 		_startWaiting();
 	pass
 
-func _mine(tile : Tile) -> bool:
+func _mine(tile : Tile) -> Tile.BlockType:
 	return tile._reduceHP(mineSpeed);
 	
 func _move(xDel : int, yDel : int) -> bool:
@@ -63,7 +65,9 @@ func _move(xDel : int, yDel : int) -> bool:
 			return false;
 		
 		Planet.MoveResponse.HITTILE:
-			if (_mine(planet._getTile(xPos + xDel, yPos + yDel))):
+			var type = _mine(planet._getTile(xPos + xDel, yPos + yDel));
+			if (type != Tile.BlockType.NONE):
+				_increaseBlocks(type)
 				planet._clearTile(xPos + xDel, yPos + yDel);
 				return true;
 			return false;
@@ -74,5 +78,10 @@ func _move(xDel : int, yDel : int) -> bool:
 		_:
 			#Just in case it falls through
 			return false;
+	
+var blockDict = {Tile.BlockType.DIRT : 0, Tile.BlockType.COAL : 0, Tile.BlockType.IRON : 0}
+func _increaseBlocks(type : Tile.BlockType) -> void:
+	blockDict[type] += 1;
+	
 		
 	

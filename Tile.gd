@@ -5,12 +5,14 @@ var hp : int = 3;
 func _ready() -> void:
 	pass # Replace with function body.
 
+enum BlockType {NONE, DIRT, COAL, IRON}
 
-func _reduceHP(dmg : int) -> bool:
+var blockType = BlockType.DIRT;
+func _reduceHP(dmg : int) -> BlockType:
 	hp -= dmg;
 	if (hp <= 0):
-		return true;
-	return false;
+		return blockType;
+	return BlockType.NONE;
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

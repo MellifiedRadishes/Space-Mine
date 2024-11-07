@@ -15,7 +15,8 @@ func _instantiate() -> bool:
 	for x in xSize:
 		for y in ySize:
 			tileData[x + y * xSize] = Tile.new();
-			tileData[x + y * ySize].hp = randi() % 4 + 3;
+			tileData[x + y * xSize].hp = randi() % 3 + 4;
+			tileData[x + y * xSize].blockType = Tile.BlockType.DIRT;
 			#set_cell(coords : Vector2i(x, y), source_id : int = 0, atlas_Coords : Vector2i = tileArray[x, y * xSize], alternate_Tile : 0);
 	return true;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,7 +42,7 @@ func _clearTile(x : int, y : int) -> void:
 		return;
 	tileData[x + y * xSize] = null;
 	
-func _printOut(playerX : int, playerY : int, fuel: int) -> void:
+func _printOut(playerX : int, playerY : int, fuel: int, blocks : int) -> void:
 	print("");
 	for y in ySize:
 		var line : String = "";
@@ -56,5 +57,8 @@ func _printOut(playerX : int, playerY : int, fuel: int) -> void:
 		
 		if (y == 0):
 			line += "   fuel: " + str(fuel);
+			
+		if (y == 1):
+			line += "  mined: " + str(blocks);
 		print(line)
 			
