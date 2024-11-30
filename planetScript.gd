@@ -15,9 +15,9 @@ var ySize : int = 40;
 @export var coalTileSprites : Array[Texture2D];
 
 func _instantiate() -> bool:
-	dirtTileSprites = [load("res://DirtTile1.png"), load("res://DirtTile2.png"), load("res://DirtTile3.png")];
-	ironTileSprites = [load("res://IronTile1.png"), load("res://IronTile2.png"), load("res://IronTile3.png"), load("res://IronTile4.png")];
-	coalTileSprites = [load("res://CoalTile1.png"), load("res://CoalTile2.png"), load("res://CoalTile3.png"), load("res://CoalTile4.png"), load("res://CoalTile5.png")];
+	dirtTileSprites = [preload("res://DirtTile1.png"), preload("res://DirtTile2.png"), preload("res://DirtTile3.png")];
+	ironTileSprites = [preload("res://IronTile1.png"), preload("res://IronTile2.png"), preload("res://IronTile3.png"), preload("res://IronTile4.png")];
+	coalTileSprites = [preload("res://CoalTile1.png"), preload("res://CoalTile2.png"), preload("res://CoalTile3.png"), preload("res://CoalTile4.png"), preload("res://CoalTile5.png")];
 	randomize();
 	tileData.resize(xSize * ySize)
 	for x in xSize:
@@ -32,10 +32,10 @@ func _instantiate() -> bool:
 				tileData[x + y * xSize].blockType = Tile.BlockType.DIRT;
 			
 			if (hp == 4):
-				tileData[x + y * xSize].blockType = Tile.BlockType.COAL;
+				tileData[x + y * xSize].blockType = Tile.BlockType.IRON;
 				
 			if (hp == 5):
-				tileData[x + y * xSize].blockType = Tile.BlockType.IRON;
+				tileData[x + y * xSize].blockType = Tile.BlockType.COAL;
 			
 	return true;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -67,14 +67,13 @@ func _printOut(playerX : int, playerY : int, fuel: int, blocks : int) -> void:
 		for x in xSize:
 			if (_getTile(x, y) == null):
 				continue;
-				
-			match(_getTile(x, y).BlockType):
+			match(_getTile(x, y).blockType):
 				Tile.BlockType.DIRT:
-					_getTile(x, y).texture = dirtTileSprites[3 - _getTile(x, y).hp];
+					_getTile(x, y).set_texture(dirtTileSprites[3 - _getTile(x, y).hp]);
 				
 				Tile.BlockType.IRON:
-					_getTile(x, y).texture = ironTileSprites[4 - _getTile(x, y).hp];
+					_getTile(x, y).set_texture(ironTileSprites[4 - _getTile(x, y).hp]);
 					
 				Tile.BlockType.COAL:
-					_getTile(x, y).texture = coalTileSprites[5 - _getTile(x, y).hp];
+					_getTile(x, y).set_texture(coalTileSprites[5 - _getTile(x, y).hp]);
 					
