@@ -1,0 +1,33 @@
+[gd_scene load_steps=17 format=3 uid="uid://b7d3446ocktqw"]
+
+[ext_resource type="Script" path="res://planetScript.gd" id="1_pfxyt"]
+[ext_resource type="Script" path="res://playerScript.gd" id="2_vhw3b"]
+[ext_resource type="PackedScene" uid="uid://brkne3m2i52mi" path="res://TileScene.tscn" id="3_8simn"]
+[ext_resource type="Texture2D" uid="uid://blctgk8t11tpa" path="res://DirtTile1.png" id="4_fk6gs"]
+[ext_resource type="Texture2D" uid="uid://dmls0j1elgycv" path="res://DirtTile2.png" id="5_xysj8"]
+[ext_resource type="Texture2D" uid="uid://ce8785nbnjrci" path="res://DirtTile3.png" id="6_ub0d6"]
+[ext_resource type="Texture2D" uid="uid://bb3yvr1k805te" path="res://IronTile1.png" id="7_ueuac"]
+[ext_resource type="Texture2D" uid="uid://cjeviy1gfcvt6" path="res://IronTile2.png" id="8_whpqq"]
+[ext_resource type="Texture2D" uid="uid://bw7ykl65vhequ" path="res://IronTile3.png" id="9_30ciw"]
+[ext_resource type="Texture2D" uid="uid://x2b5pwgykpk0" path="res://IronTile4.png" id="10_kbnrr"]
+[ext_resource type="Texture2D" uid="uid://dhgpno5jq8u52" path="res://CoalTile1.png" id="11_fipk7"]
+[ext_resource type="Texture2D" uid="uid://bw0i8yv7wun2g" path="res://CoalTile2.png" id="12_oqdiv"]
+[ext_resource type="Texture2D" uid="uid://df3wwgsn343li" path="res://CoalTile3.png" id="13_xy11p"]
+[ext_resource type="Texture2D" uid="uid://baius5jyp0i6a" path="res://CoalTile4.png" id="14_wgxxv"]
+[ext_resource type="Texture2D" uid="uid://h16vq4dw5yon" path="res://CoalTile5.png" id="15_wsyq2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w5l5i"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("planet")]
+sprite_frames = SubResource("SpriteFrames_w5l5i")
+script = ExtResource("2_vhw3b")
+planet = NodePath("../Planet")
+
+[node name="Planet" type="TileMapLayer" parent="."]
+script = ExtResource("1_pfxyt")
+tileScene = ExtResource("3_8simn")
+dirtTileSprites = Array[Texture2D]([ExtResource("4_fk6gs"), ExtResource("5_xysj8"), ExtResource("6_ub0d6")])
+ironTileSprites = Array[Texture2D]([ExtResource("7_ueuac"), ExtResource("8_whpqq"), ExtResource("9_30ciw"), ExtResource("10_kbnrr")])
+coalTileSprites = Array[Texture2D]([ExtResource("11_fipk7"), ExtResource("12_oqdiv"), ExtResource("13_xy11p"), ExtResource("14_wgxxv"), ExtResource("15_wsyq2")])

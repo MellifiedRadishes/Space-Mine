@@ -1,8 +1,6 @@
 extends AnimatedSprite2D
 class_name Player
-@export var tileMapPath : NodePath
 @export var planet : Planet
-@onready var tileMap = get_node_or_null(tileMapPath)
 
 
 var xPos = 0
@@ -15,6 +13,7 @@ func _ready() -> void:
 	planet._instantiate();
 	planet._clearTile(xPos, yPos);
 	planet._printOut(xPos, yPos, fuel, blockDict[Tile.BlockType.DIRT]);
+	_fixPosition();
 	
 	pass # Replace with function body.
 
@@ -83,5 +82,6 @@ var blockDict = {Tile.BlockType.DIRT : 0, Tile.BlockType.COAL : 0, Tile.BlockTyp
 func _increaseBlocks(type : Tile.BlockType) -> void:
 	blockDict[type] += 1;
 	
-		
-	
+func _fixPosition() -> void:
+	position = Vector2(xPos, yPos);
+	return;
