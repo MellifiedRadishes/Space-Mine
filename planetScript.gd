@@ -6,8 +6,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 var tileData : Array[Tile] = [];
-var xSize : int = 30;
-var ySize : int = 30;
+var xSize : int = 60;
+var ySize : int = 40;
 
 @export var tileScene : PackedScene;
 @export var dirtTileSprites : Array[Texture2D];
