@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://planetScript.gd" id="1_pfxyt"]
 [ext_resource type="Script" path="res://playerScript.gd" id="2_vhw3b"]
-[ext_resource type="PackedScene" uid="uid://brkne3m2i52mi" path="res://TileScene.tscn" id="3_8simn"]
+[ext_resource type="PackedScene" path="res://TileScene.tscn" id="3_8simn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w5l5i"]
 
