@@ -62,7 +62,7 @@ func _clearTile(x : int, y : int) -> void:
 	_getTile(x, y).queue_free();
 	tileData[x + y * xSize] = null;
 	
-func _printOut(playerX : int, playerY : int, fuel: int, blocks : int) -> void:
+func _printOut() -> void:
 	for y in ySize:
 		for x in xSize:
 			if (_getTile(x, y) == null):

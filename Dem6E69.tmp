@@ -7,68 +7,56 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" type="Sprite2D" parent="." node_paths=PackedStringArray("planet", "coalText", "ironText", "moneyText", "fuelText", "sellOreButton", "sellCoalButton", "refuelButton")]
+[node name="Player" type="Sprite2D" parent="." node_paths=PackedStringArray("planet", "coalText", "ironText")]
 texture = ExtResource("1_jmktx")
 script = ExtResource("2_vhw3b")
 planet = NodePath("../Planet")
 coalText = NodePath("../CoalText")
 ironText = NodePath("../IronText")
-moneyText = NodePath("../MoneyText")
-fuelText = NodePath("../FuelText")
-sellOreButton = NodePath("../SellIron")
-sellCoalButton = NodePath("../SellCoal")
-refuelButton = NodePath("../Refuel")
 
 [node name="Planet" type="TileMapLayer" parent="."]
 script = ExtResource("1_pfxyt")
 tileScene = ExtResource("3_8simn")
 
-[node name="SellIron" type="Button" parent="."]
+[node name="Button" type="Button" parent="."]
 offset_left = 2086.0
-offset_top = 132.0
+offset_top = 95.0
 offset_right = 2178.0
-offset_bottom = 163.0
+offset_bottom = 126.0
 text = "Sell 1 Ore"
 
-[node name="SellCoal" type="Button" parent="."]
+[node name="Button2" type="Button" parent="."]
 offset_left = 2081.0
-offset_top = 166.0
+offset_top = 129.0
 offset_right = 2178.0
-offset_bottom = 197.0
+offset_bottom = 160.0
 text = "Sell 1 Coal"
 
-[node name="Refuel" type="Button" parent="."]
+[node name="Button3" type="Button" parent="."]
 offset_left = 2119.0
-offset_top = 200.0
+offset_top = 163.0
 offset_right = 2177.0
-offset_bottom = 231.0
+offset_bottom = 194.0
 text = "Refuel"
 
 [node name="CoalText" type="RichTextLabel" parent="."]
 offset_left = 2086.0
-offset_top = 34.0
+offset_top = -1.0
 offset_right = 2178.0
-offset_bottom = 74.0
+offset_bottom = 39.0
 text = "Coal: "
 scroll_active = false
 
 [node name="IronText" type="RichTextLabel" parent="."]
-offset_left = 2086.0
-offset_top = -1.0
-offset_right = 2178.0
-offset_bottom = 39.0
+offset_left = 2087.0
+offset_top = 33.0
+offset_right = 2179.0
+offset_bottom = 73.0
 text = "Ore: "
 
 [node name="MoneyText" type="RichTextLabel" parent="."]
 offset_left = 2088.0
-offset_top = 65.0
+offset_top = 63.0
 offset_right = 2177.0
-offset_bottom = 105.0
+offset_bottom = 103.0
 text = "$"
-
-[node name="FuelText" type="RichTextLabel" parent="."]
-offset_left = 2089.0
-offset_top = 100.0
-offset_right = 2174.0
-offset_bottom = 140.0
-text = "Fuel:"
