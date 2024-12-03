@@ -4,7 +4,7 @@ class_name Player
 @export var coalText : RichTextLabel
 @export var ironText : RichTextLabel
 @export var moneyText : RichTextLabel
-@export var fuelText : RichTextLabel
+@export var fuelBar : TextureProgressBar
 @export var sellOreButton : Button
 @export var sellCoalButton : Button
 @export var refuelButton : Button
@@ -122,7 +122,7 @@ func _fixPosition() -> void:
 	coalText.text = "Coal: " + str(blockDict[Tile.BlockType.COAL]);
 	ironText.text = "Ore: " + str(blockDict[Tile.BlockType.IRON]);
 	moneyText.text = "$" + str(money);
-	fuelText.text = "Fuel: " + str(fuel);
+	fuelBar.value = fuel;
 	return;
 	
 func _sellIron():

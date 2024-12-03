@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7d3446ocktqw"]
+[gd_scene load_steps=11 format=3 uid="uid://b7d3446ocktqw"]
 
 [ext_resource type="Texture2D" uid="uid://b16y2kip43ony" path="res://PlayerSprite.png" id="1_jmktx"]
 [ext_resource type="Script" path="res://planetScript.gd" id="1_pfxyt"]
@@ -6,16 +6,19 @@
 [ext_resource type="Script" path="res://playerScript.gd" id="2_vhw3b"]
 [ext_resource type="PackedScene" uid="uid://brkne3m2i52mi" path="res://TileScene.tscn" id="3_8simn"]
 [ext_resource type="Texture2D" uid="uid://dkhkbcfkcjs2m" path="res://Sprites/cart.png" id="6_exxwc"]
+[ext_resource type="Texture2D" uid="uid://cucjjriw2ogll" path="res://FuelBarBackground.png" id="6_rmjwo"]
 [ext_resource type="Texture2D" uid="uid://dfqmqa74gxev3" path="res://Sprites/solidfill.png" id="7_8gmij"]
+[ext_resource type="Texture2D" uid="uid://c7dxxeupv7cnc" path="res://FuelBarTop.png" id="7_amc7c"]
+[ext_resource type="Texture2D" uid="uid://cclxxspcm7fgu" path="res://FuelBarProgress.png" id="8_ktrvb"]
 
 [node name="Node2D" type="TextureRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 2.0
-offset_right = 4.0
-offset_bottom = 2.0
+offset_left = 57.0
+offset_top = 7.0
+offset_right = 57.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_xee4d")
@@ -29,92 +32,92 @@ offset_right = 1.0
 texture = ExtResource("1_xee4d")
 expand_mode = 3
 
-[node name="Player" type="Sprite2D" parent="." node_paths=PackedStringArray("planet", "coalText", "ironText", "moneyText", "fuelText", "sellOreButton", "sellCoalButton", "refuelButton", "buyMenuButton", "speedUpgradeButton", "miningSpeedUpgradeButton", "refuelPurchaseButton")]
+[node name="Player" type="Sprite2D" parent="." node_paths=PackedStringArray("planet", "coalText", "ironText", "moneyText", "fuelBar", "sellOreButton", "sellCoalButton", "refuelButton", "buyMenuButton", "speedUpgradeButton", "miningSpeedUpgradeButton", "refuelPurchaseButton")]
 texture = ExtResource("1_jmktx")
 script = ExtResource("2_vhw3b")
 planet = NodePath("../Planet")
-coalText = NodePath("../CoalText")
-ironText = NodePath("../IronText")
-moneyText = NodePath("../MoneyText")
-fuelText = NodePath("../FuelText")
-sellOreButton = NodePath("../SellIron")
-sellCoalButton = NodePath("../SellCoal")
-refuelButton = NodePath("../Refuel")
-buyMenuButton = NodePath("../BuyMenu")
-speedUpgradeButton = NodePath("../BuyMenu/SpeedUpgrade")
-miningSpeedUpgradeButton = NodePath("../BuyMenu/MiningSpeedUpgrade")
-refuelPurchaseButton = NodePath("../BuyMenu/PurchaseFuel")
+coalText = NodePath("../VBoxContainer/CoalText")
+ironText = NodePath("../VBoxContainer/IronText")
+moneyText = NodePath("../VBoxContainer/MoneyText")
+fuelBar = NodePath("../VBoxContainer/Fuelbar")
+sellOreButton = NodePath("../VBoxContainer/SellIron")
+sellCoalButton = NodePath("../VBoxContainer/SellCoal")
+refuelButton = NodePath("../VBoxContainer/Refuel")
+buyMenuButton = NodePath("../VBoxContainer/BuyMenu")
+speedUpgradeButton = NodePath("../VBoxContainer/BuyMenu/SpeedUpgrade")
+miningSpeedUpgradeButton = NodePath("../VBoxContainer/BuyMenu/MiningSpeedUpgrade")
+refuelPurchaseButton = NodePath("../VBoxContainer/BuyMenu/PurchaseFuel")
 
 [node name="Planet" type="TileMapLayer" parent="."]
 script = ExtResource("1_pfxyt")
 tileScene = ExtResource("3_8simn")
 
-[node name="SellIron" type="Button" parent="."]
-offset_left = 2061.0
-offset_top = 231.0
-offset_right = 2233.0
-offset_bottom = 284.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.784
+anchor_top = 0.124
+anchor_right = 0.92
+anchor_bottom = 0.386
+offset_left = -7.0
+offset_top = -13.0
+offset_right = -8.0
+offset_bottom = -2.0
+
+[node name="Fuelbar" type="TextureProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+max_value = 300.0
+step = 5.0
+value = 150.0
+nine_patch_stretch = true
+texture_under = ExtResource("6_rmjwo")
+texture_over = ExtResource("7_amc7c")
+texture_progress = ExtResource("8_ktrvb")
+
+[node name="SellIron" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Sell all Ore"
 
-[node name="SellCoal" type="Button" parent="."]
-offset_left = 2061.0
-offset_top = 288.0
-offset_right = 2225.0
-offset_bottom = 341.0
+[node name="SellCoal" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Sell 1 Coal"
 
-[node name="Refuel" type="Button" parent="."]
-offset_left = 2062.0
-offset_top = 346.0
-offset_right = 2168.0
-offset_bottom = 399.0
+[node name="Refuel" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Refuel"
 
-[node name="CoalText" type="RichTextLabel" parent="."]
-offset_left = 2064.0
-offset_top = 86.0
-offset_right = 2271.0
-offset_bottom = 126.0
+[node name="IronText" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Ore: "
+
+[node name="CoalText" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(30, 50)
+layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
 text = "Coal: "
 scroll_active = false
 
-[node name="IronText" type="RichTextLabel" parent="."]
-offset_left = 2064.0
-offset_top = 42.0
-offset_right = 2266.0
-offset_bottom = 92.0
-theme_override_font_sizes/normal_font_size = 32
-text = "Ore: "
-
-[node name="MoneyText" type="RichTextLabel" parent="."]
-offset_left = 2068.0
-offset_top = 127.0
-offset_right = 2263.0
-offset_bottom = 176.0
+[node name="MoneyText" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
 text = "$"
 
-[node name="FuelText" type="RichTextLabel" parent="."]
-offset_left = 2065.0
-offset_top = 168.0
-offset_right = 2243.0
-offset_bottom = 215.0
-theme_override_font_sizes/normal_font_size = 32
-text = "Fuel:"
-
-[node name="BuyMenu" type="Button" parent="."]
-offset_left = 2063.0
-offset_top = 403.0
-offset_right = 2156.0
-offset_bottom = 496.0
+[node name="BuyMenu" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(32, 100)
+layout_mode = 2
 icon = ExtResource("6_exxwc")
+icon_alignment = 1
 expand_icon = true
 
-[node name="Background" type="TextureRect" parent="BuyMenu"]
+[node name="Background" type="TextureRect" parent="VBoxContainer/BuyMenu"]
 modulate = Color(0.121569, 0, 0, 0.698039)
 layout_mode = 0
 offset_left = -1434.0
@@ -123,7 +126,7 @@ offset_right = -59.0
 offset_bottom = 889.0
 texture = ExtResource("7_8gmij")
 
-[node name="SpeedUpgrade" type="Button" parent="BuyMenu"]
+[node name="SpeedUpgrade" type="Button" parent="VBoxContainer/BuyMenu"]
 layout_mode = 0
 offset_left = -1355.0
 offset_top = 507.0
@@ -133,7 +136,7 @@ theme_override_font_sizes/font_size = 50
 text = "Buy Speed 
 Upgrade"
 
-[node name="MiningSpeedUpgrade" type="Button" parent="BuyMenu"]
+[node name="MiningSpeedUpgrade" type="Button" parent="VBoxContainer/BuyMenu"]
 layout_mode = 0
 offset_left = -913.0
 offset_top = 509.0
@@ -144,7 +147,7 @@ text = "Buy Mining
 Speed Upgrade
 "
 
-[node name="PurchaseFuel" type="Button" parent="BuyMenu"]
+[node name="PurchaseFuel" type="Button" parent="VBoxContainer/BuyMenu"]
 layout_mode = 0
 offset_left = -481.0
 offset_top = 507.0
@@ -153,7 +156,7 @@ offset_bottom = 716.0
 theme_override_font_sizes/font_size = 50
 text = "Refuel Tank"
 
-[node name="SpeedLabel" type="RichTextLabel" parent="BuyMenu"]
+[node name="SpeedLabel" type="RichTextLabel" parent="VBoxContainer/BuyMenu"]
 layout_mode = 0
 offset_left = -1297.0
 offset_top = 424.0
@@ -163,7 +166,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "Cost: $250
 "
 
-[node name="MiningSpeedLabel" type="RichTextLabel" parent="BuyMenu"]
+[node name="MiningSpeedLabel" type="RichTextLabel" parent="VBoxContainer/BuyMenu"]
 layout_mode = 0
 offset_left = -862.0
 offset_top = 429.0
@@ -172,7 +175,7 @@ offset_bottom = 509.0
 theme_override_font_sizes/normal_font_size = 50
 text = "Cost: $1000"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BuyMenu"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/BuyMenu"]
 layout_mode = 0
 offset_left = -431.0
 offset_top = 430.0
