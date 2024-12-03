@@ -71,6 +71,7 @@ layout_mode = 2
 max_value = 300.0
 step = 5.0
 value = 150.0
+fill_mode = 3
 nine_patch_stretch = true
 texture_under = ExtResource("6_rmjwo")
 texture_over = ExtResource("7_amc7c")
