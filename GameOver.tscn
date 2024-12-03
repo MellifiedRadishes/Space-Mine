@@ -19,6 +19,7 @@ texture_focused = ExtResource("1_asi5q")
 stretch_mode = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureButton"]
+layout_mode = 0
 offset_left = 860.0
 offset_top = 531.0
 offset_right = 1678.0

@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7d3446ocktqw"]
+[gd_scene load_steps=6 format=3 uid="uid://b7d3446ocktqw"]
 
 [ext_resource type="Texture2D" uid="uid://b16y2kip43ony" path="res://PlayerSprite.png" id="1_jmktx"]
 [ext_resource type="Script" path="res://planetScript.gd" id="1_pfxyt"]
+[ext_resource type="Texture2D" uid="uid://3wab5rt3m27q" path="res://background.jpg" id="1_xee4d"]
 [ext_resource type="Script" path="res://playerScript.gd" id="2_vhw3b"]
 [ext_resource type="PackedScene" uid="uid://brkne3m2i52mi" path="res://TileScene.tscn" id="3_8simn"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 2552.0
+offset_bottom = 1435.0
+texture = ExtResource("1_xee4d")
+expand_mode = 3
 
 [node name="Player" type="Sprite2D" parent="." node_paths=PackedStringArray("planet", "coalText", "ironText", "moneyText", "fuelText", "sellOreButton", "sellCoalButton", "refuelButton")]
 texture = ExtResource("1_jmktx")
