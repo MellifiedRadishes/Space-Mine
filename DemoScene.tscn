@@ -11,8 +11,8 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 2552.0
-offset_bottom = 1435.0
+offset_left = 1.0
+offset_right = 1.0
 texture = ExtResource("1_xee4d")
 expand_mode = 3
 
@@ -37,60 +37,67 @@ script = ExtResource("1_pfxyt")
 tileScene = ExtResource("3_8simn")
 
 [node name="SellIron" type="Button" parent="."]
-offset_left = 2081.0
-offset_top = 132.0
-offset_right = 2178.0
-offset_bottom = 163.0
+offset_left = 2061.0
+offset_top = 231.0
+offset_right = 2233.0
+offset_bottom = 284.0
+theme_override_font_sizes/font_size = 32
 text = "Sell all Ore"
 
 [node name="SellCoal" type="Button" parent="."]
-offset_left = 2081.0
-offset_top = 166.0
-offset_right = 2178.0
-offset_bottom = 197.0
+offset_left = 2061.0
+offset_top = 288.0
+offset_right = 2225.0
+offset_bottom = 341.0
+theme_override_font_sizes/font_size = 32
 text = "Sell 1 Coal"
 
 [node name="Refuel" type="Button" parent="."]
-offset_left = 2082.0
-offset_top = 200.0
-offset_right = 2177.0
-offset_bottom = 231.0
+offset_left = 2062.0
+offset_top = 346.0
+offset_right = 2168.0
+offset_bottom = 399.0
+theme_override_font_sizes/font_size = 32
 text = "Refuel"
 
 [node name="CoalText" type="RichTextLabel" parent="."]
-offset_left = 2086.0
-offset_top = 34.0
-offset_right = 2178.0
-offset_bottom = 74.0
+offset_left = 2064.0
+offset_top = 86.0
+offset_right = 2271.0
+offset_bottom = 126.0
+theme_override_font_sizes/normal_font_size = 32
 text = "Coal: "
 scroll_active = false
 
 [node name="IronText" type="RichTextLabel" parent="."]
-offset_left = 2086.0
-offset_top = -1.0
-offset_right = 2178.0
-offset_bottom = 39.0
+offset_left = 2064.0
+offset_top = 42.0
+offset_right = 2266.0
+offset_bottom = 92.0
+theme_override_font_sizes/normal_font_size = 32
 text = "Ore: "
 
 [node name="MoneyText" type="RichTextLabel" parent="."]
-offset_left = 2088.0
-offset_top = 65.0
-offset_right = 2177.0
-offset_bottom = 105.0
+offset_left = 2068.0
+offset_top = 127.0
+offset_right = 2263.0
+offset_bottom = 176.0
+theme_override_font_sizes/normal_font_size = 32
 text = "$"
 
 [node name="FuelText" type="RichTextLabel" parent="."]
-offset_left = 2089.0
-offset_top = 100.0
-offset_right = 2174.0
-offset_bottom = 140.0
+offset_left = 2065.0
+offset_top = 168.0
+offset_right = 2150.0
+offset_bottom = 215.0
+theme_override_font_sizes/normal_font_size = 32
 text = "Fuel:"
 
 [node name="BuyMenu" type="Button" parent="."]
-offset_left = 2082.0
-offset_top = 235.0
-offset_right = 2175.0
-offset_bottom = 328.0
+offset_left = 2063.0
+offset_top = 403.0
+offset_right = 2156.0
+offset_bottom = 496.0
 icon = ExtResource("6_exxwc")
 expand_icon = true
 
