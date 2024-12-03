@@ -8,11 +8,17 @@ class_name Player
 @export var sellOreButton : Button
 @export var sellCoalButton : Button
 @export var refuelButton : Button
+@export var buyMenuButton : Button
+
+@export var speedUpgradeButton: Button
+@export var miningSpeedUpgradeButton: Button
+@export var refuelPurchaseButton: Button
 
 var xPos = 0
 var yPos = 0
 var mineSpeed = 1
 var money = 0;
+var isBuyMenuOpen : bool
 
 var fuel = 300;
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +31,13 @@ func _ready() -> void:
 	sellCoalButton.pressed.connect(self._sellCoal);
 	refuelButton.pressed.connect(self._refuel);
 	
+	# Buy Menu Functionality
+	buyMenuButton.pressed.connect(self._buyMenuToggle)
+	miningSpeedUpgradeButton.pressed.connect(self._buyMiningUpgrade)
+	speedUpgradeButton.pressed.connect(self._buySpeedUpgrade)
+	refuelPurchaseButton.pressed.connect(self._buyFuel)
+	for child in buyMenuButton.get_children():
+		child.visible = false
 	pass # Replace with function body.
 
 var waitTime : float = .1
@@ -36,7 +49,7 @@ func _startWaiting() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (waiting):
+	if waiting or isBuyMenuOpen:
 		return
 	
 	if (Input.is_key_pressed(KEY_W)):
@@ -146,3 +159,34 @@ func _refuel():
 	fuel += refuelAmount * 5;
 	_fixPosition();
 	return;
+
+func _buyMenuToggle():
+	if not isBuyMenuOpen:
+		isBuyMenuOpen = true
+		
+		for child in buyMenuButton.get_children():
+			child.visible = true
+		
+	else:
+		isBuyMenuOpen = false
+		
+		for child in buyMenuButton.get_children():
+			child.visible = false
+
+func _buyMiningUpgrade():
+	if money >= 1000:
+		money -= 1000
+		mineSpeed *= 1.5
+		_fixPosition()
+		
+func _buySpeedUpgrade():
+	if money >= 250:
+		money -= 250
+		waitTime *= 0.95
+		_fixPosition()
+
+func _buyFuel():
+	if money >= 2000 and fuel != 300:
+		money -= 2000
+		fuel = 300
+		_fixPosition()

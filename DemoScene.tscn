@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7d3446ocktqw"]
+[gd_scene load_steps=8 format=3 uid="uid://b7d3446ocktqw"]
 
 [ext_resource type="Texture2D" uid="uid://b16y2kip43ony" path="res://PlayerSprite.png" id="1_jmktx"]
 [ext_resource type="Script" path="res://planetScript.gd" id="1_pfxyt"]
 [ext_resource type="Texture2D" uid="uid://3wab5rt3m27q" path="res://background.jpg" id="1_xee4d"]
 [ext_resource type="Script" path="res://playerScript.gd" id="2_vhw3b"]
 [ext_resource type="PackedScene" uid="uid://brkne3m2i52mi" path="res://TileScene.tscn" id="3_8simn"]
+[ext_resource type="Texture2D" uid="uid://dkhkbcfkcjs2m" path="res://Sprites/cart.png" id="6_exxwc"]
+[ext_resource type="Texture2D" uid="uid://dfqmqa74gxev3" path="res://Sprites/solidfill.png" id="7_8gmij"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -14,7 +16,7 @@ offset_bottom = 1435.0
 texture = ExtResource("1_xee4d")
 expand_mode = 3
 
-[node name="Player" type="Sprite2D" parent="." node_paths=PackedStringArray("planet", "coalText", "ironText", "moneyText", "fuelText", "sellOreButton", "sellCoalButton", "refuelButton")]
+[node name="Player" type="Sprite2D" parent="." node_paths=PackedStringArray("planet", "coalText", "ironText", "moneyText", "fuelText", "sellOreButton", "sellCoalButton", "refuelButton", "buyMenuButton", "speedUpgradeButton", "miningSpeedUpgradeButton", "refuelPurchaseButton")]
 texture = ExtResource("1_jmktx")
 script = ExtResource("2_vhw3b")
 planet = NodePath("../Planet")
@@ -25,13 +27,17 @@ fuelText = NodePath("../FuelText")
 sellOreButton = NodePath("../SellIron")
 sellCoalButton = NodePath("../SellCoal")
 refuelButton = NodePath("../Refuel")
+buyMenuButton = NodePath("../BuyMenu")
+speedUpgradeButton = NodePath("../BuyMenu/SpeedUpgrade")
+miningSpeedUpgradeButton = NodePath("../BuyMenu/MiningSpeedUpgrade")
+refuelPurchaseButton = NodePath("../BuyMenu/PurchaseFuel")
 
 [node name="Planet" type="TileMapLayer" parent="."]
 script = ExtResource("1_pfxyt")
 tileScene = ExtResource("3_8simn")
 
 [node name="SellIron" type="Button" parent="."]
-offset_left = 2086.0
+offset_left = 2081.0
 offset_top = 132.0
 offset_right = 2178.0
 offset_bottom = 163.0
@@ -45,7 +51,7 @@ offset_bottom = 197.0
 text = "Sell 1 Coal"
 
 [node name="Refuel" type="Button" parent="."]
-offset_left = 2119.0
+offset_left = 2082.0
 offset_top = 200.0
 offset_right = 2177.0
 offset_bottom = 231.0
@@ -79,3 +85,78 @@ offset_top = 100.0
 offset_right = 2174.0
 offset_bottom = 140.0
 text = "Fuel:"
+
+[node name="BuyMenu" type="Button" parent="."]
+offset_left = 2082.0
+offset_top = 235.0
+offset_right = 2175.0
+offset_bottom = 328.0
+icon = ExtResource("6_exxwc")
+expand_icon = true
+
+[node name="Background" type="TextureRect" parent="BuyMenu"]
+modulate = Color(0.121569, 0, 0, 0.698039)
+layout_mode = 0
+offset_left = -1434.0
+offset_top = 70.0
+offset_right = -59.0
+offset_bottom = 889.0
+texture = ExtResource("7_8gmij")
+
+[node name="SpeedUpgrade" type="Button" parent="BuyMenu"]
+layout_mode = 0
+offset_left = -1355.0
+offset_top = 507.0
+offset_right = -969.0
+offset_bottom = 721.0
+theme_override_font_sizes/font_size = 50
+text = "Buy Speed 
+Upgrade"
+
+[node name="MiningSpeedUpgrade" type="Button" parent="BuyMenu"]
+layout_mode = 0
+offset_left = -913.0
+offset_top = 509.0
+offset_right = -533.0
+offset_bottom = 723.0
+theme_override_font_sizes/font_size = 50
+text = "Buy Mining
+Speed Upgrade
+"
+
+[node name="PurchaseFuel" type="Button" parent="BuyMenu"]
+layout_mode = 0
+offset_left = -481.0
+offset_top = 507.0
+offset_right = -104.0
+offset_bottom = 716.0
+theme_override_font_sizes/font_size = 50
+text = "Refuel Tank"
+
+[node name="SpeedLabel" type="RichTextLabel" parent="BuyMenu"]
+layout_mode = 0
+offset_left = -1297.0
+offset_top = 424.0
+offset_right = -1033.0
+offset_bottom = 505.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Cost: $250
+"
+
+[node name="MiningSpeedLabel" type="RichTextLabel" parent="BuyMenu"]
+layout_mode = 0
+offset_left = -862.0
+offset_top = 429.0
+offset_right = -576.0
+offset_bottom = 509.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Cost: $1000"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BuyMenu"]
+layout_mode = 0
+offset_left = -431.0
+offset_top = 430.0
+offset_right = -155.0
+offset_bottom = 500.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Cost: $2000"
