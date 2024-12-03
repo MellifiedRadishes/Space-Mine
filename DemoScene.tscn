@@ -41,7 +41,7 @@ offset_left = 2081.0
 offset_top = 132.0
 offset_right = 2178.0
 offset_bottom = 163.0
-text = "Sell 1 Ore"
+text = "Sell all Ore"
 
 [node name="SellCoal" type="Button" parent="."]
 offset_left = 2081.0

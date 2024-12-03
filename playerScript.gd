@@ -129,8 +129,8 @@ func _sellIron():
 	if (blockDict[Tile.BlockType.IRON] == 0):
 		return;
 		
-	blockDict[Tile.BlockType.IRON] -= 1;
-	money += 100;
+	money += 100 * blockDict[Tile.BlockType.IRON];
+	blockDict[Tile.BlockType.IRON] = 0;
 	_fixPosition();
 	return;
 		
