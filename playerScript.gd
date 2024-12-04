@@ -138,8 +138,8 @@ func _sellCoal():
 	if (blockDict[Tile.BlockType.COAL] == 0):
 		return;
 	
-	blockDict[Tile.BlockType.COAL] -= 1;
-	money += 75;
+	money += 25 * blockDict[Tile.BlockType.COAL];
+	blockDict[Tile.BlockType.COAL] = 0;
 	_fixPosition();
 	return;
 	
@@ -148,15 +148,13 @@ func _refuel():
 		return;
 	
 	var refuelAmount = 300 - fuel;
-	refuelAmount /= 5;
+	refuelAmount /= 3;
 	refuelAmount = int(refuelAmount);
 	if (blockDict[Tile.BlockType.COAL] < refuelAmount):
 		refuelAmount = blockDict[Tile.BlockType.COAL];
-	
-	print("refueling " + str(refuelAmount));
 		
 	blockDict[Tile.BlockType.COAL] -= refuelAmount;
-	fuel += refuelAmount * 5;
+	fuel += refuelAmount * 3;
 	_fixPosition();
 	return;
 

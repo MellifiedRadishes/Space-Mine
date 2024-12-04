@@ -1,4 +1,4 @@
-extends Node2D
+extends TextureRect
 
 @export var moneyText : RichTextLabel;
 @export var button : TextureButton;

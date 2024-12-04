@@ -85,7 +85,7 @@ text = "Sell all Ore"
 [node name="SellCoal" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Sell 1 Coal"
+text = "Sell All Coal"
 
 [node name="Refuel" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -120,67 +120,67 @@ expand_icon = true
 
 [node name="Background" type="TextureRect" parent="VBoxContainer/BuyMenu"]
 modulate = Color(0.121569, 0, 0, 0.698039)
-layout_mode = 0
-offset_left = -1434.0
-offset_top = 70.0
-offset_right = -59.0
-offset_bottom = 889.0
+layout_mode = 1
+offset_left = -1464.04
+offset_top = -273.56
+offset_right = -89.04
+offset_bottom = 545.44
 texture = ExtResource("7_8gmij")
 
 [node name="SpeedUpgrade" type="Button" parent="VBoxContainer/BuyMenu"]
-layout_mode = 0
-offset_left = -1355.0
-offset_top = 507.0
-offset_right = -969.0
-offset_bottom = 721.0
+layout_mode = 1
+offset_left = -1385.04
+offset_top = 163.44
+offset_right = -999.04
+offset_bottom = 377.44
 theme_override_font_sizes/font_size = 50
 text = "Buy Speed 
 Upgrade"
 
 [node name="MiningSpeedUpgrade" type="Button" parent="VBoxContainer/BuyMenu"]
-layout_mode = 0
-offset_left = -913.0
-offset_top = 509.0
-offset_right = -533.0
-offset_bottom = 723.0
+layout_mode = 1
+offset_left = -943.04
+offset_top = 165.44
+offset_right = -563.04
+offset_bottom = 379.44
 theme_override_font_sizes/font_size = 50
 text = "Buy Mining
 Speed Upgrade
 "
 
 [node name="PurchaseFuel" type="Button" parent="VBoxContainer/BuyMenu"]
-layout_mode = 0
-offset_left = -481.0
-offset_top = 507.0
-offset_right = -104.0
-offset_bottom = 716.0
+layout_mode = 1
+offset_left = -511.04
+offset_top = 163.44
+offset_right = -134.04
+offset_bottom = 372.44
 theme_override_font_sizes/font_size = 50
 text = "Refuel Tank"
 
 [node name="SpeedLabel" type="RichTextLabel" parent="VBoxContainer/BuyMenu"]
-layout_mode = 0
-offset_left = -1297.0
-offset_top = 424.0
-offset_right = -1033.0
-offset_bottom = 505.0
+layout_mode = 1
+offset_left = -1327.04
+offset_top = 80.44
+offset_right = -1063.04
+offset_bottom = 161.44
 theme_override_font_sizes/normal_font_size = 50
 text = "Cost: $250
 "
 
 [node name="MiningSpeedLabel" type="RichTextLabel" parent="VBoxContainer/BuyMenu"]
-layout_mode = 0
-offset_left = -862.0
-offset_top = 429.0
-offset_right = -576.0
-offset_bottom = 509.0
+layout_mode = 1
+offset_left = -892.04
+offset_top = 85.44
+offset_right = -606.04
+offset_bottom = 165.44
 theme_override_font_sizes/normal_font_size = 50
 text = "Cost: $1000"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/BuyMenu"]
-layout_mode = 0
-offset_left = -431.0
-offset_top = 430.0
-offset_right = -155.0
-offset_bottom = 500.0
+layout_mode = 1
+offset_left = -461.04
+offset_top = 86.44
+offset_right = -185.04
+offset_bottom = 156.44
 theme_override_font_sizes/normal_font_size = 50
 text = "Cost: $2000"
