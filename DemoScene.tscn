@@ -39,7 +39,7 @@ planet = NodePath("../Planet")
 coalText = NodePath("../VBoxContainer/CoalText")
 ironText = NodePath("../VBoxContainer/IronText")
 moneyText = NodePath("../VBoxContainer/MoneyText")
-fuelBar = NodePath("../Fuelbar")
+fuelBar = NodePath("../VBoxContainer/Fuelbar")
 sellOreButton = NodePath("../VBoxContainer/SellIron")
 sellCoalButton = NodePath("../VBoxContainer/SellCoal")
 refuelButton = NodePath("../VBoxContainer/Refuel")
@@ -52,24 +52,6 @@ refuelPurchaseButton = NodePath("../VBoxContainer/BuyMenu/PurchaseFuel")
 script = ExtResource("1_pfxyt")
 tileScene = ExtResource("3_8simn")
 
-[node name="Fuelbar" type="TextureProgressBar" parent="."]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 1
-anchors_preset = -1
-offset_left = 2250.0
-offset_top = 180.0
-offset_right = 2300.0
-offset_bottom = 480.0
-rotation = 1.5708
-max_value = 300.0
-step = 5.0
-value = 150.0
-fill_mode = 3
-nine_patch_stretch = true
-texture_under = ExtResource("6_rmjwo")
-texture_over = ExtResource("7_amc7c")
-texture_progress = ExtResource("8_ktrvb")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -81,6 +63,17 @@ offset_right = -310.0
 offset_bottom = -710.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Fuelbar" type="TextureProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+max_value = 300.0
+step = 5.0
+value = 150.0
+nine_patch_stretch = true
+texture_under = ExtResource("6_rmjwo")
+texture_over = ExtResource("7_amc7c")
+texture_progress = ExtResource("8_ktrvb")
 
 [node name="Refuel" type="Button" parent="VBoxContainer"]
 layout_mode = 2
