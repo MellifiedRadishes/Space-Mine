@@ -32,15 +32,14 @@ offset_right = 1.0
 texture = ExtResource("1_xee4d")
 expand_mode = 3
 
-[node name="Player" type="Sprite2D" parent="." node_paths=PackedStringArray("planet", "coalText", "ironText", "moneyText", "quotaText", "dialogueText", "fuelBar", "sellOreButton", "sellCoalButton", "refuelButton", "buyMenuButton", "speedUpgradeButton", "miningSpeedUpgradeButton", "refuelPurchaseButton", "contactCompanyButton", "closeTransmissionButton")]
+[node name="Player" type="Sprite2D" parent="." node_paths=PackedStringArray("planet", "coalText", "ironText", "moneyText", "quotaText", "fuelBar", "sellOreButton", "sellCoalButton", "refuelButton", "buyMenuButton", "speedUpgradeButton", "miningSpeedUpgradeButton", "refuelPurchaseButton")]
 texture = ExtResource("1_jmktx")
 script = ExtResource("2_vhw3b")
 planet = NodePath("../Planet")
 coalText = NodePath("../VBoxContainer/CoalText")
 ironText = NodePath("../VBoxContainer/IronText")
 moneyText = NodePath("../VBoxContainer/MoneyText")
-quotaText = NodePath("../VBoxContainer/QuotaText")
-dialogueText = NodePath("../VBoxContainer/ContactCompany/DialougeBox")
+quotaText = NodePath("../VBoxContainer/ContactCompany/DialougeBox")
 fuelBar = NodePath("../VBoxContainer/Fuelbar")
 sellOreButton = NodePath("../VBoxContainer/SellIron")
 sellCoalButton = NodePath("../VBoxContainer/SellCoal")
@@ -49,8 +48,6 @@ buyMenuButton = NodePath("../VBoxContainer/BuyMenu")
 speedUpgradeButton = NodePath("../VBoxContainer/BuyMenu/SpeedUpgrade")
 miningSpeedUpgradeButton = NodePath("../VBoxContainer/BuyMenu/MiningSpeedUpgrade")
 refuelPurchaseButton = NodePath("../VBoxContainer/BuyMenu/PurchaseFuel")
-contactCompanyButton = NodePath("../VBoxContainer/ContactCompany")
-closeTransmissionButton = NodePath("../VBoxContainer/ContactCompany/CloseTransmission")
 
 [node name="Planet" type="TileMapLayer" parent="."]
 script = ExtResource("1_pfxyt")
@@ -117,7 +114,7 @@ text = "$"
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
-text = "Quota: $800"
+text = "Quota: "
 
 [node name="BuyMenu" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(32, 100)
@@ -206,7 +203,7 @@ modulate = Color(0.121569, 0, 0, 0.698039)
 offset_left = -1538.0
 offset_top = 251.0
 offset_right = 74.0
-offset_bottom = 623.0
+offset_bottom = 726.0
 texture = ExtResource("7_8gmij")
 
 [node name="Background2" type="TextureRect" parent="VBoxContainer/ContactCompany"]
@@ -243,9 +240,9 @@ theme_override_font_sizes/normal_font_size = 40
 text = "Welcome new recruit, Juno Mining Co. is happy to welcome you as our newest extra planetary resources management operator. Let's not beat around the bush; its time for you to get to work. Starting quota is $800, get to it, remember to contact us once you've made enough to meet quota."
 
 [node name="CloseTransmission" type="Button" parent="VBoxContainer/ContactCompany"]
-offset_left = -377.0
-offset_top = 293.5
-offset_right = 34.0
-offset_bottom = 367.5
+offset_left = -379.0
+offset_top = 634.5
+offset_right = 32.0
+offset_bottom = 708.5
 theme_override_font_sizes/font_size = 40
 text = "Close Transmistion"
