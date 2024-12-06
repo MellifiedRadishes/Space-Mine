@@ -203,6 +203,7 @@ expand_icon = true
 
 [node name="Background" type="TextureRect" parent="VBoxContainer/ContactCompany"]
 modulate = Color(0.121569, 0, 0, 0.698039)
+layout_mode = 0
 offset_left = -1538.0
 offset_top = 251.0
 offset_right = 74.0
@@ -211,6 +212,7 @@ texture = ExtResource("7_8gmij")
 
 [node name="Background2" type="TextureRect" parent="VBoxContainer/ContactCompany"]
 modulate = Color(0.121569, 0, 0, 0.698039)
+layout_mode = 0
 offset_left = -1508.0
 offset_top = 372.0
 offset_right = -1.0
@@ -219,6 +221,7 @@ texture = ExtResource("7_8gmij")
 
 [node name="Background3" type="TextureRect" parent="VBoxContainer/ContactCompany"]
 modulate = Color(0.121569, 0, 0, 0.698039)
+layout_mode = 0
 offset_left = -1505.0
 offset_top = 300.0
 offset_right = -1.0
@@ -226,6 +229,7 @@ offset_bottom = 366.0
 texture = ExtResource("7_8gmij")
 
 [node name="DialougeTitle" type="RichTextLabel" parent="VBoxContainer/ContactCompany"]
+layout_mode = 0
 offset_left = -1493.0
 offset_top = 295.0
 offset_right = 37.0
@@ -235,6 +239,7 @@ text = "Transmission Recieved: Juno Mining Co.
 "
 
 [node name="DialougeBox" type="RichTextLabel" parent="VBoxContainer/ContactCompany"]
+layout_mode = 0
 offset_left = -1487.0
 offset_top = 376.5
 offset_right = -19.0
@@ -243,6 +248,7 @@ theme_override_font_sizes/normal_font_size = 40
 text = "Welcome new recruit, Juno Mining Co. is happy to welcome you as our newest extra planetary resources management operator. Let's not beat around the bush; its time for you to get to work. Starting quota is $800, get to it, remember to contact us once you've made enough to meet quota."
 
 [node name="CloseTransmission" type="Button" parent="VBoxContainer/ContactCompany"]
+layout_mode = 0
 offset_left = -377.0
 offset_top = 293.5
 offset_right = 34.0

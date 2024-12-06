@@ -17,8 +17,9 @@ texture = ExtResource("1_7i8kf")
 stretch_mode = 1
 
 [node name="Rocket" type="Sprite2D" parent="TextureRect" node_paths=PackedStringArray("collision_area", "collision_shape", "enter_planet_buton")]
-position = Vector2(678, 326)
+position = Vector2(678, 327)
 rotation = 1.5708
+scale = Vector2(3, 3)
 texture = ExtResource("2_wesfv")
 script = ExtResource("2_hvbe0")
 collision_area = NodePath("Area2D")

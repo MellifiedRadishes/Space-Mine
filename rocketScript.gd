@@ -9,7 +9,7 @@ signal enter
 signal exit
 
 var velocity = Vector2(0,0)
-var acceleration = 1
+var acceleration = .75
 var braking = .5
 var rotational_speed = 1
 var thrust = Vector2(0,0)
