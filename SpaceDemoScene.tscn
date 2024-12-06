@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1umfx8sya2ds"]
+
+[ext_resource type="Texture2D" uid="uid://3wab5rt3m27q" path="res://background.jpg" id="1_7i8kf"]
+[ext_resource type="Script" path="res://rocketScript.gd" id="2_hvbe0"]
+[ext_resource type="Texture2D" uid="uid://dms4s0tedlwm2" path="res://Sprites/rocket.png" id="2_wesfv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_li2ci"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbp3x"]
+
+[node name="SpaceDemoScene" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 3200.0
+offset_bottom = 1800.0
+texture = ExtResource("1_7i8kf")
+stretch_mode = 1
+
+[node name="Rocket" type="Sprite2D" parent="TextureRect" node_paths=PackedStringArray("collision_area", "collision_shape", "enter_planet_buton")]
+position = Vector2(678, 326)
+rotation = 1.5708
+texture = ExtResource("2_wesfv")
+script = ExtResource("2_hvbe0")
+collision_area = NodePath("Area2D")
+collision_shape = NodePath("Area2D/CollisionShape2D")
+enter_planet_buton = NodePath("../../VisitPlanet")
+
+[node name="Area2D" type="Area2D" parent="TextureRect/Rocket"]
+scale = Vector2(1e-05, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Rocket/Area2D"]
+visible = false
+scale = Vector2(3.38, 1.275)
+shape = SubResource("CircleShape2D_li2ci")
+
+[node name="Planet1" type="Area2D" parent="."]
+position = Vector2(156.59, 196.87)
+scale = Vector2(39.9, 39.9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet1"]
+shape = SubResource("CircleShape2D_cbp3x")
+
+[node name="Planet2" type="Area2D" parent="."]
+position = Vector2(638.84, 1059.66)
+scale = Vector2(41.82, 41.82)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet2"]
+shape = SubResource("CircleShape2D_cbp3x")
+
+[node name="Planet3" type="Area2D" parent="."]
+position = Vector2(1616.37, 866.09)
+scale = Vector2(35.045, 35.045)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet3"]
+shape = SubResource("CircleShape2D_cbp3x")
+
+[node name="Planet4" type="Area2D" parent="."]
+position = Vector2(2828.97, 1075.29)
+scale = Vector2(32.37, 31.03)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet4"]
+shape = SubResource("CircleShape2D_cbp3x")
+
+[node name="Planet5" type="Area2D" parent="."]
+position = Vector2(2455.72, 485.765)
+scale = Vector2(29.335, 27.345)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet5"]
+shape = SubResource("CircleShape2D_cbp3x")
+
+[node name="Planet6" type="Area2D" parent="."]
+position = Vector2(1629.92, -35.88)
+scale = Vector2(64.595, 35.045)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet6"]
+shape = SubResource("CircleShape2D_cbp3x")
+
+[node name="Planet7" type="Area2D" parent="."]
+position = Vector2(1629.92, 1839.39)
+scale = Vector2(64.595, 35.045)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet7"]
+shape = SubResource("CircleShape2D_cbp3x")
+
+[node name="Planet8" type="Area2D" parent="."]
+position = Vector2(3286.24, 212.01)
+scale = Vector2(29.54, 35.665)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet8"]
+shape = SubResource("CircleShape2D_cbp3x")
+
+[node name="Planet9" type="Area2D" parent="."]
+position = Vector2(129.7, 1980.27)
+scale = Vector2(41.351, 41.26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet9"]
+shape = SubResource("CircleShape2D_cbp3x")
+
+[node name="Planet10" type="Area2D" parent="."]
+position = Vector2(3352.2, 1877.69)
+scale = Vector2(31.24, 32.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet10"]
+shape = SubResource("CircleShape2D_cbp3x")
+
+[node name="VisitPlanet" type="Button" parent="."]
+theme_override_font_sizes/font_size = 32
+text = "Visit Planet
+"
+
+[connection signal="area_entered" from="TextureRect/Rocket/Area2D" to="TextureRect/Rocket" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="TextureRect/Rocket/Area2D" to="TextureRect/Rocket" method="_on_area_2d_area_exited"]
